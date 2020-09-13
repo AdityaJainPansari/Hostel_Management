@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content1 %}
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<!--h1 id="site-title" style="text-transform: uppercase;color:rgb(255,0,0);">{{groupname}}</h1-->
+				<br>
+				<br>
+				<br>
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<th>Poll Id :</th>
+								<td>{{poll["poll_id"]}}</td>
+							</tr>
+							<tr>
+								<td colspan="2"><h3>{{poll["title"]}}</h3></td>
+							</tr>
+							<tr>
+								<td>By: <a href="/user/username">{{poll["username"]}}</a></td>
+								<td>
+									<center>
+										<h4 class="entry-title" >
+											<img alt="image not loaded" height=15% width=15% src="../../static/profile/{{ poll['username'] }}.jpeg" />
+										</h4>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>Created on : {{poll["poll_date"]}}</td>
+							</tr>
+							<tr>
+								<td colspan="2" rowspan="2"><textarea style="width: 50vw;height: 20vh;max-height: 50vh;max-width: 50vw;" disabled="true">{{poll["description"]}}</textarea></td>
+							</tr>
+							<tr></tr>
+						</thead>
+					</table>
+				</div><!-- .entry-content -->
+				<br>
+				<br>
+				<br>
+				{% for option in options %}
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<td colspan="2">
+									{{option["option"]}}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Votes : {{option["likes"]}}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="/vote/{{option['id']}}">vote</a>
+								</td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<br>
+				<br>
+				{% endfor %}
+				<div id="respond">
+					<h3 id="reply-title">Add Option</h3>
+					<form action="/add_option/{{poll['poll_id']}}" method="post" id="commentform">
+						<p class="comment-form-comment"><input type="text" id="option" name="option" required></p>
+						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Add Option" />
+							<input type='hidden' name='comment_post_ID' value='2' id='comment_post_ID' />
+							<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+					</form>
+				</div><!-- #respond -->
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}

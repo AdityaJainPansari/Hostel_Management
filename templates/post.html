@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content1 %}
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<!--h1 id="site-title" style="text-transform: uppercase;color:rgb(255,0,0);">{{groupname}}</h1-->
+				<br>
+				<br>
+				<br>
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<th>Post Id :</th>
+								<td>{{post["post_id"]}}</td>
+							</tr>
+							<tr>
+								<td colspan="2"><h3>{{post["title"]}}</h3></td>
+							</tr>
+							<tr>
+								<td>By: <a href="/user/username">{{post["username"]}}</a></td>
+								<td>
+									<center>
+										<h4 class="entry-title" >
+											<img alt="image not loaded" height=15% width=15% src="../../static/profile/{{ post['username'] }}.jpeg" />
+										</h4>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>Posted on : {{post["post_date"]}}</td>
+							</tr>
+							<tr>
+								<td colspan="2" rowspan="2"><textarea style="width: 50vw;height: 20vh;max-height: 50vh;max-width: 50vw;" disabled="true">{{post["description"]}}</textarea></td>
+							</tr>
+							<tr></tr>
+							<tr>
+								<td>
+									Likes : {{post["likes"]}}
+								</td>
+								<td>
+									Dislikes : {{post["dislikes"]}}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="/like/{{post['post_id']}}">Like</a>
+								</td>
+								<td>
+									<a href="/dislike/{{post['post_id']}}">Dislike</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="post/{{post['post_id']}}">Comments</a>
+								</td>
+							</tr>
+						</thead>
+					</table>
+				</div><!-- .entry-content -->
+				<br>
+				<br>
+				<br>
+				{% for comment in comments %}
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<td colspan="2">
+									{{comment["comment"]}}
+								</td>
+							</tr>
+							<tr>
+								<td>By: <a href="/user/username">{{comment["username"]}}</a></td>
+								<td>
+									<center>
+										<h4 class="entry-title" >
+											<img alt="image not loaded" height=15% width=15% src="../../static/profile/{{ comment['username'] }}.jpeg" />
+										</h4>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>Posted on : {{comment["comment_date"]}}</td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<br>
+				<br>
+				{% endfor %}
+				<div id="respond">
+							<h3 id="reply-title">Add Comment</h3>
+							<form action="/add_comment/{{post['post_id']}}" method="post" id="commentform">
+								<p class="comment-form-comment"><input type="text" id="comment" name="comment" required></p>
+								<p class="form-submit">
+								<input name="submit" type="submit" id="submit" value="Add Comment" />
+								<input type='hidden' name='comment_post_ID' value='2' id='comment_post_ID' />
+								<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+							</p>
+						</form>
+					</div><!-- #respond -->
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}

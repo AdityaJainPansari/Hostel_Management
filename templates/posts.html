@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content1 %}
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 id="site-title" style="text-transform: uppercase;color:rgb(255,0,0);">{{groupname}}</h1>
+				<br>
+				<br>
+				<br>
+				{% for post in posts %}
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<th>Post Id :</th>
+								<td>{{post["post_id"]}}</td>
+							</tr>
+							<tr>
+								<td colspan="2"><h3>{{post["title"]}}</h3></td>
+							</tr>
+							<tr>
+								<td>By: <a href="/user/username">{{post["username"]}}</a></td>
+								<td>
+									<center>
+										<h4 class="entry-title" >
+											<img alt="image not loaded" height=15% width=15% src="../static/profile/{{ post['username'] }}.jpeg" />
+										</h4>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>Posted on : {{post["post_date"]}}</td>
+							</tr>
+							<tr>
+								<td colspan="2" rowspan="2"><textarea style="width: 50vw;height: 20vh;max-height: 50vh;max-width: 50vw;" disabled="true">{{post["description"]}}</textarea></td>
+							</tr>
+							<tr></tr>
+							<tr>
+								<td>
+									Likes : {{post["likes"]}}
+								</td>
+								<td>
+									Dislikes : {{post["dislikes"]}}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="/like/{{post['post_id']}}/{{groupname}}">Like</a>
+								</td>
+								<td>
+									<a href="/dislike/{{post['post_id']}}/{{groupname}}">Dislike</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="{{url_for('show_comments',post_id=post['post_id'])}}">Comments</a>
+								</td>
+							</tr>
+						</thead>
+					</table>
+				</div><!-- .entry-content -->
+				<br>
+				<br>
+				<br>
+				{% endfor %}
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}

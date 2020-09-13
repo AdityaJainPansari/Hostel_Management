@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<img alt="image not loaded" height="198" src="../static/hostel.jpg" width="940"/>
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 class="entry-title">Add Charges 2017-18</h1>
+
+				<div class="entry-content">
+					<!--h3 class="widget-title">Add Charge
+							</h3-->
+							<form action="/add_charge" class="bbp-login-form" method="post">
+								<fieldset style="width: 60vw">
+									<legend>Due Details
+									</legend>
+									<div class="bbp-username">
+										<label for="user_login">Username: 
+										</label><br/>
+										<input id="username" name="username" size="10" tabindex="101" class="input" type="email" value="" required />
+									</div>
+									<div class="bbp-username">
+										<label for="user_login">Description: 
+										</label><br/>
+										<textarea id="description" name="description" style="width: 55vw" tabindex="101" class="input" value=""></textarea>
+									</div>
+									<div class="bbp-username">
+										<label for="user_pass">Amount: 
+										</label><br/>
+										<input id="due_amount" name="amount" size="10" tabindex="102" class="input" type="number" value="" required />
+									</div>
+								<div class="bbp-submit-wrapper">
+									<button class="button submit user-submit" id="user-submit" name="user-submit" tabindex="104" type="submit">Add
+									</button>
+									<input name="user-cookie" type="hidden" value="1"/>
+									<input name="redirect_to" type="hidden" value="/"/>
+									<input id="_wpnonce" name="_wpnonce" type="hidden" value="b783ee86eb"/>
+									<input name="_wp_http_referer" type="hidden" value="/"/>
+								</div>
+							</fieldset>
+						</form>
+				</div><!-- .entry-content -->
+				<!--div class="entry-content">
+					<h3 class="widget-title">Pay Dues
+							</h3>
+							<form action="/pay_charge" class="bbp-login-form" method="post">
+								<fieldset style="width: 60vw">
+									<legend>Due Details
+									</legend>
+									<div class="bbp-username">
+										<label for="user_login">Due Id :
+										</label><br/>
+										<input id="username" name="due_id" size="10" tabindex="101" class="input" type="number" value="" required />
+									</div>
+								<div class="bbp-submit-wrapper">
+									<button class="button submit user-submit" id="user-submit" name="user-submit" tabindex="104" type="submit">Pay
+									</button>
+									<input name="user-cookie" type="hidden" value="1"/>
+									<input name="redirect_to" type="hidden" value="/"/>
+									<input id="_wpnonce" name="_wpnonce" type="hidden" value="b783ee86eb"/>
+									<input name="_wp_http_referer" type="hidden" value="/"/>
+								</div>
+							</fieldset>
+						</form>
+				</div--><!-- .entry-content -->
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}

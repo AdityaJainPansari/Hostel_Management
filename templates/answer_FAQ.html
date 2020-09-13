@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<img alt="image not loaded" height="198" src="../static/hostel.jpg" width="940"/>
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 class="entry-title">Answers to FAQs 2017-18</h1>
+
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<th>Q_ID</th>
+								<th>Question</th>
+								<th>Answer</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for row in rows %}
+							<tr>
+								<td id="books1">{{row["id"]}}</td>
+								<td id="books1">{{row["question"]}}</td>
+								<td id="books1" style="color: red">
+									<form action="/update_FAQ" method="post">
+										{% if row["answer"] %}
+										<textarea type="text" rows=5 cols=50 name="answer" value="{{row['answer']}}" required>{{row['answer']}}</textarea>
+										{% else %}
+										<textarea type="text" rows=5 cols=50 name="answer" value="type your answer here" required>type your answer here</textarea>
+										{% endif %}
+										<button type="submit"> Update Answer </button>
+										<input type="text" name="id" value={{row["id"]}} style="visibility: hidden;">
+									</form></td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+			</div><!-- #comments -->
+		</div><!-- #content -->
+	</div><!-- #container --> 
+	{% endblock %}

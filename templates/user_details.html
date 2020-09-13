@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<center>
+	{% if row['profile_pic'] %}
+	<img alt="image not loaded" style="margin-left: 33vw;height: 25vh;width: 20vw;" src="../static/profile/{{row['username']}}.jpeg" />
+	{% else %}
+	{% if row['warden'] %}
+	<img alt="image not loaded" style="margin-left: 33vw;height: 25vh;width: 20vw;" src="../static/profile/unkward.jpeg" />
+	{% else %}
+	<img alt="image not loaded" style="margin-left: 33vw;height: 25vh;width: 20vw;" src="../static/profile/unknown.jpeg" />
+	{% endif %}
+	{% endif %}
+</center>
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 id="site-title" style="color:rgb(200,150,100);">{{row["username"]}}</h1>
+				<h1 id="site-title" style="text-transform: uppercase;color:rgb(200,150,100);">{{row["firstname"]}} {{row["lastname"]}}</h1>
+				<h4 class="entry-title" >{{row["roll_no"]}}</h4>
+				<br>
+				<br>
+				<br>
+				<div class="entry-content">
+					<table>
+						<thead>
+							{% if row["phone"] %}
+							<tr>
+								<th>Contact No. :</th>
+								<td>{{row["phone"]}}</td>
+							</tr>
+							{% endif %}
+							{% if row["gaurdian"] %}
+							<tr>
+								<th>Gaurdian :</th>
+								<td>{{row["gaurdian"]}}</td>
+							</tr>
+							<tr>
+								<th>Gaurdian's Contact No. :</th>
+								<td>{{row["gaurdian_phone"]}}</td>
+							</tr>
+							{% endif %}
+							{% if row["batch"] %}
+							<tr>
+								<th>Batch :</th>
+								<td>{{row["batch"]}}</td><!--//{{no_of_reviews}} reviews-->
+							</tr>
+							{% endif %}
+							<tr>
+								<th>Room_No :</th>
+								<td>{{row["room_no"]}}</td>
+							</tr>
+						</thead>
+					</table>
+				</div><!-- .entry-content -->
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}

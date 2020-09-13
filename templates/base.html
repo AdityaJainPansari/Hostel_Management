@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+	<meta charset="utf-8"/>
+	<title>{{ title }}
+	</title>
+	<link href="http://gmpg.org/xfn/11" rel="profile"/>
+	<link href="{{url_for('static',filename='style.css')}}" media="all" rel="stylesheet" type="text/css"/>
+	<link href="http://forum.iiit.ac.in/2017/xmlrpc.php" rel="pingback"/>
+	<link href="../static/iiit.ico" rel="icon" type="image/x-icon"/>
+	<link href="../static/iiit.ico" rel="shortcut icon" type="image/x-icon"/>
+	<link href="http://forum.iiit.ac.in/2017/?feed=rss2" rel="alternate" title="IIIT-H Hostel Portal » Feed" type="application/rss+xml"/>
+	<link href="http://forum.iiit.ac.in/2017/?feed=comments-rss2" rel="alternate" title="IIIT-H Hostel Portal » Comments Feed" type="application/rss+xml"/>
+	<link href="{{url_for('static',filename='bbpress.css')}}" id="bbpress-style-css" media="screen" rel="stylesheet" type="text/css"/>
+	<script type='text/javascript' src='http://forum.iiit.ac.in/2017/wp-includes/js/l10n.js?ver=20101110'></script>
+	<script type='text/javascript' src='http://forum.iiit.ac.in/2017/wp-includes/js/comment-reply.js?ver=20090102'></script>
+	<link href="http://forum.iiit.ac.in/2017/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+	<link href="http://forum.iiit.ac.in/2017/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+	<link href="http://forum.iiit.ac.in/2017" rel="index" title="IIIT-H Hostel Portal"/>
+	<meta content="WordPress 3.1.4" name="generator"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO">
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive">
+	<meta name="author" content="FREEHTML5.CO">
+	<meta Http-Equiv="Cache-Control" Content="no-cache">
+	<meta Http-Equiv="Pragma" Content="no-cache">
+	<meta Http-Equiv="Expires" Content="0"> 
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:image" content="">
+	<meta name="twitter:url" content="">
+	<meta name="twitter:card" content="">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<link href="{{url_for('static',filename='css.css')}}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="" <!--="" modernizr="" js="" --="">
+	<!--script src="/static/modernizr-2.js">
+</script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+</script>
+</head>
+<body class={{ cls_type }}>
+	<div class="hfeed" id="wrapper">
+		<div id="header">
+			<div id="masthead">
+				<div id="branding" role="banner">
+					<h1 id="site-title">
+						<span>
+							<a href="http://iiit.ac.in">
+								<img id="logoimg" alt="image not loaded" src="../static/iiit-new.png" style="border:0px;height:60px;width:92px"/>
+							</a>
+							<a href="/" rel="home" title="IIIT-H Hostel Portal">IIIT-H Hostel Portal
+							</a>
+						</span>
+					</h1>
+					<div id="site-description">The official portal related to IIIT-H hostels. An initiative of the students, for the students, by the students!
+					</div>
+					<br>
+					<br>
+					{% block content1%}
+					{% endblock %}
+					<div id="access" role="navigation">
+						<div class="skip-link screen-reader-text">
+							<a href="#content" title="Skip to content">Skip to content
+							</a>
+						</div>
+						<div class="menu">
+							<ul>
+								<li>
+									<a href="/" title="Home">Home
+									</a>
+								</li>
+								<li class="page_item page-item-2">
+									<a href="/FAQs" title="FAQs">FAQs
+									</a>
+								</li>
+								{% if logged_in %}
+								<li class="page_item page-item-14" >
+									{% else %}
+									<li class="page_item page-item-14" style="visibility: hidden">
+										{% endif %}
+										<a href="/feed" title="Feed">Feed
+										</a>
+									</li>
+									{% if logged_in %}
+									<li class="page_item page-item-14" >
+										{% else %}
+										<li class="page_item page-item-14" style="visibility: hidden">
+											{% endif %}
+											<a href="/poll_feed" title="Polls">Polls
+											</a>
+										</li>
+										{% if logged_in %}
+										<li class="page_item page-item-14" >
+											{% else %}
+											<li class="page_item page-item-14" style="visibility: hidden">
+												{% endif %}
+												<a href="/dues" title="Dues">Dues
+												</a>
+											</li>
+											{% if logged_in %}
+											<li class="page_item page-item-14" >
+												{% else %}
+												<li class="page_item page-item-14" style="visibility: hidden">
+													{% endif %}
+													<a href="/add_post" title="Post">Add Post
+													</a>
+												</li>
+												{% if logged_in %}
+												<li class="page_item page-item-14" >
+													{% else %}
+													<li class="page_item page-item-14" style="visibility: hidden">
+														{% endif %}
+														<a href="/add_poll" title="Poll">Add Poll
+														</a>
+													</li>
+													{% if logged_in and det['warden'] %}
+													<li class="page_item page-item-14" >
+														{% else %}
+														<li class="page_item page-item-14" style="visibility: hidden">
+															{% endif %}
+															<a href="/charges" title="charges">Add Charge
+															</a>
+														</li>
+														{% if logged_in and not det['warden'] %}
+														<li class="page_item page-item-14" >
+															{% else %}
+															<li class="page_item page-item-14" style="visibility: hidden">
+																{% endif %}
+																<a href="/change_room" title="charges">Change Room
+																</a>
+															</li>
+														</ul>
+													</div>	
+												</div><!-- #access -->
+											</div><!-- #masthead -->
+										</div><!-- #header -->
+										{% block content2%}
+										{% endblock %}
+										<div class="widget-area" id="primary" role="complementary">
+											<ul class="xoxo">
+												<li class="widget-container bbp_widget_login" id="bbp_login_widget-3">
+													{% if logged_in %}
+													<h3 class="widget-title">Logged in as <br>{% if det['warden'] %} Warden {{ det['hostel'] }} Niwas {% else %}{{ det['firstname'] }}{% endif %}
+													</h3>
+													<center>
+														<h4 class="entry-title" >
+															{% if det['profile_pic'] %}
+															<img alt="image not loaded" height=51% width=51% src="../static/profile/{{ det['username'] }}.jpeg" />
+															{% else %}
+															{% if det['warden'] %}
+															<img alt="image not loaded" height=51% width=51% src="../static/profile/unkward.jpeg" />
+															{% else %}
+															<img alt="image not loaded" height=51% width=51% src="../static/profile/unknown.jpeg" />
+															{% endif %}
+															{% endif %}
+														</h4>
+													</center>
+
+													<form action="/logout" class="bbp-login-form" method="post">
+														<fieldset>
+															<legend>Log Out</legend>
+															<div class="bbp-submit-wrapper">
+																<button class="button submit user-submit" id="user-submit" name="user-submit" tabindex="104" type="submit">Log Out
+																</button>
+																<input name="user-cookie" type="hidden" value="1"/>
+																<input name="redirect_to" type="hidden" value="/"/>
+																<input id="_wpnonce" name="_wpnonce" type="hidden" value="b783ee86eb"/>
+																<input name="_wp_http_referer" type="hidden" value="/"/>
+															</div>
+														</fieldset>
+													</form>
+													{% else %}
+													<h3 class="widget-title">Login
+													</h3>
+													<form action="/login" class="bbp-login-form" method="post">
+														<fieldset>
+															<legend>Log In
+															</legend>
+															<div class="bbp-username">
+																<label for="user_login">Username: 
+																</label>
+																<input id="user_login" name="log" size="20" tabindex="101" class="input" type="email" value=""/>
+															</div>
+															<div class="bbp-password">
+																<label for="user_pass">Password: 
+																</label>
+																<input id="user_pass" name="pwd" size="20" tabindex="102" class="input" type="password" value=""/>
+															</div>
+								<!--div class="bbp-remember-me">
+									<input id="rememberme" name="rememberme" tabindex="103" type="checkbox" value="forever"/>
+									<label for="rememberme">Remember Me
+									</label>
+								</div-->
+								<div class="bbp-submit-wrapper">
+									<button class="button submit user-submit" id="user-submit" name="user-submit" tabindex="104" type="submit">Log In
+									</button>
+									<input name="user-cookie" type="hidden" value="1"/>
+									<input name="redirect_to" type="hidden" value="/"/>
+									<input id="_wpnonce" name="_wpnonce" type="hidden" value="b783ee86eb"/>
+									<input name="_wp_http_referer" type="hidden" value="/"/>
+								</div>
+								<div class="bbp-login-links">
+									<a class="bbp-lostpass-link" href="http://passwordreset.iiit.ac.in/" title="Lost Password">Lost Password
+									</a>
+								</div>
+							</fieldset>
+						</form>
+						{% endif %}
+					</li>
+					<li class="widget-container widget_search" id="search-2">
+						<form action="/feedsearch" id="searchform" method="get" role="search">
+							<div>
+								<label class="screen-reader-text" for="s">Search for:
+								</label>
+								<input id="s" name="s" type="text" value=""/>
+								<input id="searchsubmit" type="submit" value="Search"/>
+							</div>
+						</form>
+					</li> 
+					<li class="widget-container widget_recent_entries" id="recent-posts-2"> 
+						<h3 class="widget-title">Recent Posts
+						</h3> 
+						<ul>
+							<li>
+								<a href="/" title="About IIIT-H Hostel portal">About IIIT-H Hostel portal
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="widget-container widget_display_forums" id="bbp_forums_widget-3">
+						<h3 class="widget-title">Hostels
+						</h3>
+						<ul>
+							<li>
+								<a class="bbp-forum-title" href="{{ url_for('show_admins') }}" title="Portal Admins">Portal Admins
+								</a>
+							</li>
+							<li><a class="bbp-forum-title" href="#" title="Hostel Details">Hostel Details :
+								<ul>
+									<li>
+										<a class="bbp-forum-title" href="/hostel/bakul" title="Bakul">Bakul
+										</a>
+									</li>
+									<li>
+										<a class="bbp-forum-title" href="/hostel/palash" title="Palash">Palash
+										</a>
+									</li>
+									<li>
+										<a class="bbp-forum-title" href="/hostel/parijaat" title="Parijaat">Parijaat
+										</a>
+									</li>
+									<li>
+										<a class="bbp-forum-title" href="/hostel/nbh" title="NBH">NBH
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="/" alt=" url_for('alerts') " title="Alerts">Alerts
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!--li class="widget-container widget_display_topics" id="bbp_topics_widget-3">
+						<h3 class="widget-title">Topics
+						</h3>
+						<ul>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=magnificent-necklace-collection-at-shipgig" title="Magnificent Necklace collection at Shipgig">Magnificent Necklace collection at Shipgig
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=earrings-that-you-want-to-wear-at-shipgig" title="Earrings that you want to wear at Shipgig">Earrings that you want to wear at Shipgig
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=internship" title="Internship">Internship
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=dasa-2018-no-sat-test-in-january" title="DASA 2018 – no SAT test in January">DASA 2018 – no SAT test in January
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=is-it-okay-if-i-come-a-few-hours-later-on-registration-day" title="Is it okay if I come a few hours later on registration day?">Is it okay if I come a few hours later on registration day?
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=joining-date" title="Joining Date">Joining Date
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=allotment-letter" title="Allotment letter">Allotment letter
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=hostel-life" title="Hostel Life">Hostel Life
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=banking-facility" title="Banking Facility">Banking Facility
+								</a> 
+							</li>
+							<li>
+								<a class="bbp-forum-title" href="http://forum.iiit.ac.in/2017/?topic=do-we-have-to-bring-bedroll-curtains-etc" title="Do we have to bring bedroll, curtains etc?">Do we have to bring bedroll, curtains etc?
+								</a> 
+							</li>
+						</ul>
+					</li>
+					<li class="widget-container widget_recent_comments" id="recent-comments-3">
+						<h3 class="widget-title">Recent comments
+						</h3>
+						<ul id="recentcomments">
+							<li class="recentcomments">
+								<a class="url" href="http://admin" rel="external nofollow">Moderator05
+								</a> on 
+								<a href="http://forum.iiit.ac.in/2017/?page_id=14#comment-34">Forums
+								</a>
+							</li>
+							<li class="recentcomments">Moderator00 on 
+								<a href="http://forum.iiit.ac.in/2017/?page_id=14#comment-22">Forums
+								</a>
+							</li>
+							<li class="recentcomments">Priank prasad on 
+								<a href="http://forum.iiit.ac.in/2017/?page_id=14#comment-21">Forums
+								</a>
+							</li>
+						</ul>
+					</li-->
+					<li class="widget-container widget_archive" id="archives-2">
+						<h3 class="widget-title">Archives
+						</h3> 
+						<ul>
+							<li>
+								<a href="{{ url_for('hostel_rules') }}" title="HostelRules_2015">HostelRules_2015
+								</a>
+							</li>
+						</ul>
+					</li> 
+				</ul>
+			</div>
+		</div>
+		<div id="footer" role="contentinfo">
+			<div id="colophon">
+				<div id="site-info">© IIIT-Hyderabad, 2018
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

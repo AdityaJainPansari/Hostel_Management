@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<img alt="image not loaded" style="height: 50vh;width: 50vh;" src="../static/{{ det['hostel']|lower }}.jpg" />
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 class="entry-title">My Groups</h1>
+
+				<div class="entry-content">
+					<ul>
+						{% for group in groups %}
+						<li><a href="/polls/{{group}}">{{group}}</a></li>
+						{% endfor %}
+					</ul>
+				</div><!-- .entry-content -->
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<img alt="image not loaded" height="198" src="../static/hostel.jpg" width="940"/>
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 class="entry-title">Dues 2017-18</h1>
+
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Username</th>
+								<th>Description</th>
+								<th>Amount</th>
+								<th>Date</th>
+								<th>Paid ?</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for row in rows %}
+							<tr>
+								<td id="books1">{{row["id"]}}</td>
+								<td id="books1">{{row["username"]}}</td>
+								<td id="books1">{{row["description"]}}</td>
+								<td id="books1">{{row["amount"]}}</td>
+								<td id="books1">{{row["due_date"]}}</td>
+								{% if row["paid"] %}
+								<td id="books1" style="color: green">Paid</td>
+								{% elif not det['warden'] %}
+								<td id="books1" style="color: red">To be paid !</td>
+								{% else %}
+								<td id="books1" style="color: red">
+									<form action="/set_paid" method="post">
+										<button type="submit"> Set as Paid </button>
+										<input type="text" name="id" value={{row["id"]}} style="visibility: hidden;">
+									</form></td>
+									{% endif %}
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div><!-- .entry-content -->
+					{% if not det['warden'] %}
+					Net Amount to be Paid = {{net_amount}}
+					{% endif %}
+				</div><!-- #post-## -->
+			</div><!-- #comments -->
+		</div><!-- #content -->
+	</div><!-- #container --> 
+	{% endblock %}

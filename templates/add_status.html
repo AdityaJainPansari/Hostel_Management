@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<img alt="image not loaded" height="198" src="../static/hostel.jpg" width="940"/>
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 class="entry-title">Add Status 2017-18</h1>
+
+				<div class="entry-content">
+					<!--h3 class="widget-title">Add Charge
+				</h3-->
+				<form action="/add_status" class="bbp-login-form" method="post">
+					<fieldset style="width: 55vw">
+						<legend>Post Details
+						</legend>
+						<div class="bbp-username">
+							<label for="user_login">Title: 
+							</label><br/>
+							<input id="title" name="title" size="10" tabindex="101" class="input" type="text" value="" required />
+						</div>
+						<div class="bbp-username">
+							<label for="user_login">Description: 
+							</label><br/>
+							<textarea id="description" name="description" style="width: 50vw;height: 40vh;max-height: 50vh;max-width: 50vw;" tabindex="101" class="input" value="" required></textarea>
+						</div>
+						<div class="bbp-username">
+							<label for="user_pass">Group: 
+							</label>
+							<center>
+								<font size=2>
+									<tt>
+										{% if logged_in %}
+										<input name="group" type="radio" value="{{det['hostel']}}" checked="checked">{{det['hostel']}}
+										{% if not det['warden'] %}
+										<input name="group" type="radio" value="{{det['wing']}}" >Wing {{det['wing']}}
+										<input name="group" type="radio" value="{{det['hostel']}} warden" >{{det['hostel']}} warden
+										{% else %}
+										<input name="group" type="radio" value="admin {{det['hostel']}}" >Admin {{det['hostel']}}
+										{% for wing in wings %}
+										<input name="group" type="radio" value="admin {{ wing[0] }}" >Wing {{wing[0]}}
+										{% endfor %}
+										{% endif %}
+										{% if not (det['admin'] and det['of_what']=="portal") %}
+										<input name="group" type="radio" value="portal admin" checked="checked">Portal Admin
+										{% endif %}
+										{% endif %}
+									</tt>
+								</font>
+							</center>
+						</div>
+						<div class="bbp-submit-wrapper">
+							<button class="button submit user-submit" id="user-submit" name="user-submit" tabindex="104" type="submit">Post
+							</button>
+							<input name="user-cookie" type="hidden" value="1"/>
+							<input name="redirect_to" type="hidden" value="/"/>
+							<input id="_wpnonce" name="_wpnonce" type="hidden" value="b783ee86eb"/>
+							<input name="_wp_http_referer" type="hidden" value="/"/>
+						</div>
+					</fieldset>
+				</form>
+			</div><!-- .entry-content -->
+				<!--div class="entry-content">
+					<h3 class="widget-title">Pay Dues
+							</h3>
+							<form action="/pay_charge" class="bbp-login-form" method="post">
+								<fieldset style="width: 60vw">
+									<legend>Due Details
+									</legend>
+									<div class="bbp-username">
+										<label for="user_login">Due Id :
+										</label><br/>
+										<input id="username" name="due_id" size="10" tabindex="101" class="input" type="number" value="" required />
+									</div>
+								<div class="bbp-submit-wrapper">
+									<button class="button submit user-submit" id="user-submit" name="user-submit" tabindex="104" type="submit">Pay
+									</button>
+									<input name="user-cookie" type="hidden" value="1"/>
+									<input name="redirect_to" type="hidden" value="/"/>
+									<input id="_wpnonce" name="_wpnonce" type="hidden" value="b783ee86eb"/>
+									<input name="_wp_http_referer" type="hidden" value="/"/>
+								</div>
+							</fieldset>
+						</form>
+					</div--><!-- .entry-content -->
+				</div><!-- #post-## -->
+			</div><!-- #comments -->
+		</div><!-- #content -->
+	</div><!-- #container --> 
+	{% endblock %}

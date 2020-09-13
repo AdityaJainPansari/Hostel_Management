@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<img alt="image not loaded" style="height: 50vh;width: 50vh;" src="../static/{{row[0]['name']|lower }}.jpg" />
+{% endblock %}
+{% block content2 %}
+<div id="main">
+
+	<div id="container">
+		<div id="content" role="main">
+			<div id="post-2" class="post-2 page type-page status-publish hentry">
+				<h1 id="site-title" style="text-transform: uppercase;color:rgb(255,0,0);">{{row[0]["name"]}}</h1>
+				<h4 class="entry-title" ><img alt="image not loaded" style="height: 10vh;width: 10vh;" src="../static/phone.png" />{{row[0]["phone"]}}<img alt="image not loaded" style="height: 25vh;width: 25vh;margin-left: 20vw" src="../static/profile/{{row[0]['warden']}}.jpeg" /></h4>
+				<br>
+				<br>
+				<br>
+				<div class="entry-content">
+					<table>
+						<thead>
+							<tr>
+								<th>Warden :</th>
+								<td>{{row[0]["warden"]}}</td>
+							</tr>
+							<tr>
+								<th>Contact No. :</th>
+								<td>{{row[0]["phone_warden"]}}</td>
+							</tr>
+							<tr>
+								<th>Rating :</th>
+								<td>{{row[0]["ratings"]}}</td><!--//{{no_of_reviews}} reviews-->
+							</tr>
+							<tr>
+								<th>head</th>
+								<td>data</td>
+							</tr>
+						</thead>
+					</table>
+				</div><!-- .entry-content -->
+			</div><!-- #post-## -->
+		</div><!-- #comments -->
+	</div><!-- #content -->
+</div><!-- #container --> 
+{% endblock %}
